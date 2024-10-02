@@ -6,15 +6,6 @@ local text = io.read("*a") file:close()
 local file = "ITdict.md"
 local t= {}
 
-function sorted(dict)
-    local items = {}
-    for key, value in pairs(dict) do
-        table.insert(items, {key, value})    end
-
-    table.sort(items, function(a, b) return a[1] < b[1] end)
-    return items
-end
-
 for line in io.lines(file) do    
     local term, text = string.match(line, "%*%*%*(.+)%*%*%*(.+)")
     if term and text then
